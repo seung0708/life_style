@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  food_id: 1
+  date: 2020-06-08 12:43:23
+  quantity: 9.99
+
+two:
+  user_id: 1
+  food_id: 1
+  date: 2020-06-08 12:43:23
+  quantity: 9.99
