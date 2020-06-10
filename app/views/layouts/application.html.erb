@@ -10,6 +10,19 @@
   </head>
 
   <body>
+
+    <div>
+      <% if logged_in? %>
+          <%= link_to "Log Out", logout_path %>
+          <%= link_to "Track Your Foods", new_diary_entry_path %>
+          <%= link_to "Food Diary", diary_entries_path %>
+      <% else %>
+          <%= link_to "Sign Up", signup_path %>
+          <%= link_to "Log In", login_path %>
+      <% end %>
+    <div>
+
+
     <%= yield %>
   </body>
 </html>

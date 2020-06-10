@@ -1,0 +1,18 @@
+<h1>Track your Foods for the Day</h1>
+
+<%= form_for(@diary_entry) do |f| %>
+    <%= f.label :date%>
+    <%= f.text_field :date%>
+    <br>
+    <br>
+    <%= f.label :food_id %>
+    <%= f.text_field :food_id %>
+    <br>
+    <br>
+    <%= f.label :quantity%>
+    <%= f.number_field :quantity %>
+    <br>
+    <br>
+
+    <%= f.submit "Sumbit" %>
+<% end %>

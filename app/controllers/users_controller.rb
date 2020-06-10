@@ -14,6 +14,12 @@ class UsersController < ApplicationController
         end 
     end 
 
+    def show
+        redirect_if_not_logged_in 
+        @user = User.find(params[:id])
+        redirect_to '/' if !@user
+    end 
+
     private
 
         def user_params
