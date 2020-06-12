@@ -1,18 +1,20 @@
-<h1>Add a Food</h1>
+<%= form_for @food do |f| %>
+    <%= f.fields_for :foods do |food| %>
+        <%= food.label :name %>
+        <%= food.text_field :name %><br>
+    
+        <%= food.label :calories %>
+        <%= food.number_field :calories %><br>
 
-<%= form_for(@diary_entry) do |f| %>
-    <%= f.label :date%>
-    <%= f.text_field :date %>
-    <br>
-    <br>
-    <%= f.label :food_id %>
-    <%= f.text_field :food_id %>
-    <br>
-    <br>
-    <%= f.label :quantity%>
-    <%= f.number_field :quantity %>
-    <br>
-    <br>
+        <%= food.label :protein %>
+        <%= food.number_field :protien %><br>
 
+        <%= food.label :carbohyrdates%>
+        <%= food.number_field :carbohydrates %><br>
+
+        <%= food.label :fats%>
+        <%= food.number_field :fats %><br>
+
+    <% end %>
     <%= f.submit "Sumbit" %>
 <% end %>

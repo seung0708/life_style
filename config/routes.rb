@@ -9,9 +9,15 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   delete '/logout', to: 'sessions#destroy'
+
   
-  resources :users
+  
+  resources :users do 
+    resources :foods, only: [:new, :create, :show]
+  end 
   resources :diary_entries
-  resources :foods
+  resources :foods do
+    resources :users, only: [:new, :create, :show]
+  end 
 
 end
