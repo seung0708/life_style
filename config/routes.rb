@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'sessions#home'
+  root  'sessions#home'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -10,14 +10,14 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
+  get "/auth/:provider/callback" => 'sessions#omniauth'
   
   
-  resources :users do 
-    resources :foods, only: [:new, :create, :show]
-  end 
+  
+  resources :users  
+  resources :diaries 
+  resources :foods
   resources :diary_entries
-  resources :foods do
-    resources :users, only: [:new, :create, :show]
-  end 
+
 
 end

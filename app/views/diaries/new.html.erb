@@ -1,0 +1,39 @@
+<h1>Track your Foods for the Day</h1>
+
+<%= form_for(@diary) do |f| %>
+   
+    <%= f.label :date %>
+    <%= f.date_field :date %> 
+    <br>
+    <br>
+    
+    <%= f.fields_for :diary_entries do |entry| %>
+        <%= entry.label :serving_size %>
+        <%= entry.number_field :serving_size %>
+    <% end %>
+    <br>
+    <br>
+    <%= f.collection_check_boxes :food_ids, Food.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.fields_for :foods do |food| %>
+        <%= food.label :name%>
+        <%= food.text_field :name %>
+        <br></br>
+        <%= food.label :calories %>
+        <%= food.number_field :calories %>
+        <br></br>
+        <%= food.label :protein %>
+        <%= food.number_field :protein %>
+        <br></br>
+        <%= food.label :carbohydrates %>
+        <%= food.number_field :carbohydrates %>
+        <br></br>
+        <%= food.label :fats %>
+        <%= food.number_field :fats %>
+    <% end %>
+    
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>Food Database</h1>
+
+<h3><td><%= link_to "Add", new_food_path %></td></h3>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fats</th>
+    </tr>
+
+    <tr>
+    <% @foods.each do |food| %>
+        <td><%= link_to food.name, food %></td>
+        <td><%= food.calories %></td>
+        <td><%= food.protein %></td>
+        <td><%= food.carbohydrates %></td>
+        <td><%= food.fats %></td>
+        <td><%= link_to "Edit", edit_food_path(food) %></td>
+    </tr>
+    <% end %>
+</table>
+

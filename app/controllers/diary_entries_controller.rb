@@ -1,42 +1,23 @@
 class DiaryEntriesController < ApplicationController
-    def index
-        @diary_entries = DiaryEntry.all
-    end
-
+    before_action :redirect_if_not_logged_in
+    
     def new
         @diary_entry = DiaryEntry.new
-        #@diary_entry.foods.build()
     end 
 
     def create
-        @diary_entry = current_user.diary_entries.build(diary_entry_params)
-        if @diary_entry.save
-            redirect_to diary_entries_path
-        else 
+        @diary_entry = DiaryEntry.new(diary_entry_params)
+        @diary_entry
+            if !@diary_entry.errors.any?
+                redirect_to 
+            else 
             render :new
         end 
-    end 
+    end     
 
-    def show
-        @diary_entry = DiaryEntry.find_by(id: params[:id])
-    end 
-
-    def edit
-        @diary_entry = DiaryEntry.find_by(id: params[:id])
-    end 
-
-    def update
-        @diary_entry = DiaryEntry.find_by(id: params[:id])
-        if diary_entry.update(params[:diary_entries]) 
-            redirect_to diary_entries_path
-        else 
-            render :edit
-        end 
-    end 
-
+    private 
+    
     def diary_entry_params
-        params.require(:diary_entry).permit()
+        params.require(:diary_entry).permit(:serving_size)
     end 
-
 end 
-

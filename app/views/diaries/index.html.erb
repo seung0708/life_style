@@ -1,0 +1,15 @@
+<h1>Food Diary</h1>
+
+<h2>Date</h2>
+
+<ul>
+
+    <% @diary.each do |diary| %>
+        <% if current_user.id == diary.user.id %>
+            <li><%= link_to diary.date, diary %></li>
+        <% end %>
+    <% end %>
+</ul>
+
+
+<%= link_to "Add New Diary", new_diary_path %><table>

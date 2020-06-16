@@ -1,0 +1,28 @@
+<h1> Saved Diary <%= @diary.date %> </h1>
+
+
+    <table>
+    <tr>
+        <th>Serving Size</th>
+        <th>Name</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Carbohydrates</th>
+        <th>Fats</th>
+    </tr>
+    <div>
+    <tr>
+        <% @diary.diary_entries.each do |diary_entry| %>
+            <td><%= diary_entry.serving_size  %></td>
+         <% end %>
+        <% @diary.foods.each do |food| %>
+            <td><%= link_to food.name, food %></td>
+            <td><%= food.calories %></td>
+            <td><%= food.protein %></td>
+            <td><%= food.carbohydrates %></td>
+            <td><%= food.carbohydrates%></td>
+    </tr>
+    </div>
+        <% end %>
+
+</table>

@@ -1,52 +1,8 @@
-<h1>Welcome <%= @user.username %></h1>
 
-<h1> Food Diary </h1>
-    <tbody>
-        <tr>
-            <td>Breakfast</td>
-            <td>Calories</td>
-            <td>Protien</td>
-            <td>Carbohydrates</td>
-            <td>Fats</td>
-        </tr>
-        <br>
-        <tr>
-            <td>diary_entry.food.name</td>
-            <td>diary_entry.food.calories</td>
-            <td>diary_entry.food.protein</td>
-            <td>diary_entry.food.carbohydates</td>
-            <td>diary_entry.food.fats</td>
-        </tr>
-        <br></br>
-        <tr>
-            <td>Lunch</td>
-            <td>Calories</td>
-            <td>Protien</td>
-            <td>Carbohydrates</td>
-            <td>Fats</td>
-        </tr>
-        <br>
-        </tr>
-        <td>diary_entry.food.name</td>
-        <td>diary_entry.food.calories</td>
-        <td>diary_entry.food.protein</td>
-        <td>diary_entry.food.carbohydates</td>
-        <td>diary_entry.food.fats</td>
-        </tr>
-        <br></br>
-        <tr>
-            <td>Dinner</td>
-            <td>Calories</td>
-            <td>Protien</td>
-            <td>Carbohydrates</td>
-            <td>Fats</td>
-        </tr>
-        <br>
-        </tr>
-            <td>diary_entry.food.name</td>
-            <td>diary_entry.food.calories</td>
-            <td>diary_entry.food.protein</td>
-            <td>diary_entry.food.carbohydates</td>
-            <td>diary_entry.food.fats</td>
-        </tr>
-    </tbody>
+<% if logged_in? %>
+    <h1>Welcome <%= current_user.username %></h1>
+<% end %>
+
+<%= link_to "Track Your Foods", '/diaries' %>
+
+<%= link_to "Food Database", '/foods' %>

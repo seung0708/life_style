@@ -1,3 +1,10 @@
-<h1>Track your Foods for the Day</h1>
+<h1>Create a New Entry</h1>
 
-<%= render 'form' %>
+<%= form_for (@diary_entry) do |f| %>
+    <%= f.label :serving_size %>
+    <%= f.number_field :serving_size %>   
+    <br></br>
+    <%= f.collection_select :food_id, Food.all, :id, :name, prompt: true %>
+    <br></br>
+    <input type="submit" />
+<% end %>

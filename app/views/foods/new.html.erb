@@ -1,20 +1,20 @@
-<%= form_for @food do |f| %>
-    <%= f.fields_for :foods do |food| %>
-        <%= food.label :name %>
-        <%= food.text_field :name %><br>
-    
-        <%= food.label :calories %>
-        <%= food.number_field :calories %><br>
+<h1> Food Database </h1>
 
-        <%= food.label :protein %>
-        <%= food.number_field :protien %><br>
-
-        <%= food.label :carbohyrdates%>
-        <%= food.number_field :carbohydrates %><br>
-
-        <%= food.label :fats%>
-        <%= food.number_field :fats %><br>
-
-    <% end %>
-    <%= f.submit "Sumbit" %>
+<%= form_for (@food) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>   
+    <br></br>
+    <%= f.label :calories %>
+    <%= f.number_field :calories %>
+    <br></br>
+    <%= f.label :protein %>
+    <%= f.number_field :protein %>
+    <br></br>
+    <%= f.label :carbohyrdates%>
+    <%= f.number_field :carbohydrates %>
+    <br></br>
+    <%= f.label :fats%>
+    <%= f.number_field :fats %>
+    <br></br>
+    <%= f.submit "Submit" %>
 <% end %>
