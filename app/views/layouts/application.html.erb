@@ -13,11 +13,13 @@
 
     <div>
       <% if logged_in? %>
-          <%= link_to "Log Out", logout_path, method: "delete" %>
           <%= link_to "Home", current_user %>
+         
+          <%= link_to "Log Out", logout_path, method: "delete" %>
       <% else %>
           <%= link_to "Sign Up", signup_path %>
           <%= link_to "Log In", login_path %>
+          <%= link_to "Welcome", root_path %>
       <% end %>
     <div>
 

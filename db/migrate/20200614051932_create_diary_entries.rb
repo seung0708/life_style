@@ -3,8 +3,8 @@ class CreateDiaryEntries < ActiveRecord::Migration[6.0]
     create_table :diary_entries do |t|
       t.float :serving_size
 
-      t.belongs_to :food, index: true, foreign_key: true
-      t.belongs_to :diary, index: true, foreign_key: true
+      t.references :food, foreign_key: {on_delete: :cascade}
+      t.references :diary, foreign_key: {on_delete: :cascade}
       t.timestamps
     end
   end

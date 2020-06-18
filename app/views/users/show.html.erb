@@ -3,6 +3,8 @@
     <h1>Welcome <%= current_user.username %></h1>
 <% end %>
 
-<%= link_to "Track Your Foods", '/diaries' %>
 
-<%= link_to "Food Database", '/foods' %>
+
+<%= link_to "Food Database", foods_path %>
+
+<%= link_to "Food Diary", user_diaries_path(@user) %>

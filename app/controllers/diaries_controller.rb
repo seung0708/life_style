@@ -1,16 +1,20 @@
 class DiariesController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :redirect_if_not_owner
+    before_action :find_diary, only: [:show, :edit, :update, :destroy]
+    
     def index
-            
-            @diary = Diary.all
-            
+        if params[:user_id] && @user = User.find_by_id(:user_id)
+            @diaries = @user.diaries  
+        else
+            @error = "This diary doesn't exist" if params[:user_id]
+            @diaries = Diary.all 
+        end 
     end
 
     def new
-            @diary = current_user.new
-            @diary.foods.build
-            @diary.diary_entries.build
+        @diary = Diary.new
+        @diary.foods.build
+        @diary.diary_entries.build
     end 
 
     def create
@@ -23,30 +27,36 @@ class DiariesController < ApplicationController
     end
 
     def show
-        @diary = Diary.find_by(id: params[:id])
     end 
 
     def edit
-        @diary = Diary.find_by(id: params[:id])
     end 
 
     def update
-        @diary = Diary.find_by(id: params[:id])
         if diary.update(params[:diary]) 
-            redirect_to diary_path
         else 
             render :edit
         end 
     end 
 
-    def diary_params
-        params.require(:diary).permit(
-            :date, 
-            diary_entries_attributes: [:serving_size],
-            food_ids:[],
-            foods_attributes: [:name, :calories, :protein, :carbohydrates, :fats]
-            )
+    def destroy
+        @diary.destroy
+        redirect_to diaries_path
     end 
 
+    private 
+        def diary_params
+            params.require(:diary).permit(
+                :date, 
+                diary_entries_attributes: [:serving_size],
+                food_ids:[],
+                foods_attributes: [:name, :calories, :protein, :carbohydrates, :fats]
+                )
+        end 
+
+        def find_diary
+            @diary = Diary.find_by(id: params[:id])
+            redirect_if_not_owner
+        end 
 
 end

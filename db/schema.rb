@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_051932) do
   end
 
   add_foreign_key "diaries", "users", on_delete: :cascade
-  add_foreign_key "diary_entries", "diaries"
-  add_foreign_key "diary_entries", "foods"
+  add_foreign_key "diary_entries", "diaries", on_delete: :cascade
+  add_foreign_key "diary_entries", "foods", on_delete: :cascade
 end

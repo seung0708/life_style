@@ -1,6 +1,18 @@
 <h1> Food Database </h1>
-
-<%= form_for (@food) do |f| %>
+ 
+<%= form_for ([@diary, @food]) do |f| %>
+    <% if @food.errors.any? %>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @food.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<br>
+    <div class="field" >
     <%= f.label :name %>
     <%= f.text_field :name %>   
     <br></br>
@@ -17,4 +29,6 @@
     <%= f.number_field :fats %>
     <br></br>
     <%= f.submit "Submit" %>
+    </div>
+
 <% end %>

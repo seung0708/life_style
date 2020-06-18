@@ -3,10 +3,9 @@
 <h2>Date</h2>
 
 <ul>
-
-    <% @diary.each do |diary| %>
+        <% @diaries.each do |diary| %>
         <% if current_user.id == diary.user.id %>
-            <li><%= link_to diary.date, diary %></li>
+            <li><%= link_to diary.date.strftime("%B, %d, %Y"), diary %></li>
         <% end %>
     <% end %>
 </ul>

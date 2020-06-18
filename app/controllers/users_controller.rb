@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    
 
     def new
         @user = User.new
@@ -10,18 +11,12 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
-            flash[:message] = "
-                Password must have at least 8 characters
-                Password must have at least one number
-                Password must have at least one lowercase letter
-                Password must have at least one uppercase letter
-            "
+            flash[:message] = "Invalid Email or Password. Please try again"
             redirect_to '/signup'
         end 
     end 
-
+ 
     def show
-        redirect_if_not_logged_in
         @user = User.find(params[:id])
         redirect_to '/' if !@user
     end 
