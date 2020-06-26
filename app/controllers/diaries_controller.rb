@@ -3,12 +3,18 @@ class DiariesController < ApplicationController
     before_action :find_diary, only: [:show, :edit, :update, :destroy]
     
     def index
-        if params[:user_id] && @user = User.find_by_id(:user_id)
-            @diaries = @user.diaries  
+        #byebug
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            if !@user.id == current_user.id
+                 redirect_to user_path(@user), alert: "User not found"
+            else
+                @diaries = @user.diaries 
+                redirect_to user_diaries_path, alert: "Diary not found" if @diaries.nil?
+            end 
         else
-            @error = "This diary doesn't exist" if params[:user_id]
-            @diaries = Diary.all 
-        end 
+            @diaries = Diary.all
+        end
     end
 
     def new
