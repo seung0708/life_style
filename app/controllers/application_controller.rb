@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end 
 
     def redirect_if_not_owner
-        if current_user == nil || current_user.id == session[:user_id]
+        if current_user == nil || current_user.id != session[:user_id]
           flash[:alert] = "Unauthorized access. Please login to view this page."
           redirect_to '/'
         end

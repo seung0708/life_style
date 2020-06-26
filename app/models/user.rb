@@ -1,17 +1,9 @@
 class User < ApplicationRecord
     
-    PASSWORD_REQUIREMENTS = /\A
-        (?=.{8,}) 
-        (?=.*\d)
-        (?=.*[a-z])
-        (?=.*[A-Z])
-    /x
-    
     has_secure_password
     has_many :diaries
     validates :username, presence: true
-    validates :email, uniqueness: true
-    #validates :password, presence: true
+    validates :email, uniqueness: truegoo
     require 'securerandom'
     def self.from_omniauth(auth)
         where(email: auth.info.email).first_or_initialize do |user|
