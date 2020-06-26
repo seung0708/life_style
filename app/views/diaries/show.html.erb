@@ -15,7 +15,7 @@
             <td><%= diary_entry.serving_size  %></td>
          <% end %>
         <% @diary.foods.each do |food| %>
-            <td><%= link_to food.name, diary_foods_path(food) %></td>
+            <td><%= link_to food.name, diary_food_path(food) %></td>
             <td><%= food.calories %></td>
             <td><%= food.protein %></td>
             <td><%= food.carbohydrates %></td>
@@ -23,7 +23,6 @@
         <% end %>
     </tr>  
 </table>
-
 <br></br>
 <%= link_to "Delete", diary_path(@diary), method: :delete %>
 <br></br>

@@ -7,13 +7,12 @@ class FoodsController < ApplicationController
     end 
 
     def new
-        if params[:diary_id] && @diary = Diary.find_by_id(:diary_id)
-            @foods = @diary.foods  
+        if params[:diary_id] && @diary = Diary.find_by_id(params[:diary_id])
+            @food = @diary.foods.build
         else
             @error = "This diary doesn't exist" if params[:diary_id]
-            @foods = Food.all 
+            @food = Food.new
         end 
-        @food = Food.new
     end 
 
     def create
@@ -40,7 +39,7 @@ class FoodsController < ApplicationController
     private
 
     def food_params
-        params.require(:food).permit(:name, :protein, :carbohydrates, :fats, :calories)
+        params.require(:food).permit(:name, :protein, :carbohydrates, :fats, :calories, food_ids:[])
     end 
 
     def find_food
