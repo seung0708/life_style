@@ -36,6 +36,7 @@
         <%= f.collection_check_boxes(:food_ids, Food.all, :id, :name) do |b| %>
             <%= b.label %> 
             <%= b.check_box %>
+        <% end %>
         <% # Will generate a checkbox named diary[food_ids][] for each food in Food.all
             # it will use the :id as the value for the checkbox
             # and it will use the :name method as the label for checkbox 

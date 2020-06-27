@@ -1,27 +1,32 @@
 <h1> Saved Diary: <%= @diary.date.strftime("%B, %d, %Y") %> </h1>
 
 
-    <table cellspacing="0">
-    <tr>
-        <th>Serving Size</th>
-        <th>Name</th>
-        <th>Calories</th>
-        <th>Protein</th>
-        <th>Carbohydrates</th>
-        <th>Fats</th>
-    </tr>
-    <tr>
-        <% @diary.diary_entries.each do |diary_entry| %>
+    <table>
+        <thead>
+        <tr>
+            <th>Serving Size</th>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbohydrates</th>
+            <th>Fats</th>
+        </tr>
+        <head>
+        <tbody>
+        <% @diary.diary_entries.each do |diary_entry| %>  
+        
+            <% @diary.foods.each do |food| %>
+        <tr>
             <td><%= diary_entry.serving_size  %></td>
-         <% end %>
-        <% @diary.foods.each do |food| %>
-            <td><%= link_to food.name, diary_food_path(food) %></td>
+            <td><%= food.name %></td>
             <td><%= food.calories %></td>
             <td><%= food.protein %></td>
             <td><%= food.carbohydrates %></td>
-            <td><%= food.carbohydrates%></td>
+            <td><%= food.fats%></td>
+            <% end %> 
+        </tr>
         <% end %>
-    </tr>  
+       </tbody>
 </table>
 
 

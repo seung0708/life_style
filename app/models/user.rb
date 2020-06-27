@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :diaries
     validates :username, presence: true
-    validates :email, uniqueness: truegoo
+    validates :email, uniqueness: true
     require 'securerandom'
     def self.from_omniauth(auth)
         where(email: auth.info.email).first_or_initialize do |user|

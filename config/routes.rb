@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :diaries, only: [:index] 
   end 
   resources :diaries do 
-      resources :foods, only: [:new, :create, :show]
+      resources :foods, only: [:new, :create]
   end 
   resources :foods
   resources :diary_entries

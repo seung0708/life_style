@@ -16,12 +16,17 @@ class FoodsController < ApplicationController
     end 
 
     def create
-        @food = Food.new(food_params)
-          if  @food.save
-            redirect_to foods_path  
-          else
-            render :new
-          end 
+        if params[:diary_id] && @diary = Diary.find_by_id(params[:diary_id])
+            @food = @diary.foods.create(food_params)
+            redirect_to diary_path(@diary)
+        else
+            if @food = Food.new(food_params)
+                @food.save
+                redirect_to foods_path  
+            else
+                render :new
+            end
+        end 
     end 
 
     def show 

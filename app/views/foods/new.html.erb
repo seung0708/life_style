@@ -16,6 +16,7 @@
     </div>
 <% end %>
 <br>
+<%  if @diary %>
     <%= f.label :name %>
     <%= f.text_field :name %>   
     <br></br>
@@ -32,6 +33,6 @@
     <%= f.number_field :fats, step: :any %>
     <br></br>
     <%= f.submit "Submit" %>
-
+<% end%>
 
 <% end %>
