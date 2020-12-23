@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <%= form_for :user do |f|  %>
+      <%= f.text_field :username, placeholder: "username" %><br></br>
+      <%= f.password_field :password, placeholder: "password" %><br></br>
+      <%= f.submit "Login" %>
+      <% end %>
+    <!-- <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div> -->
+
+  </div>
+    <%= flash[:message] if flash[:message] %>
+</div>
+

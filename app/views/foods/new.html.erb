@@ -1,0 +1,38 @@
+<% if @diary %>
+    <h1> New Food for <%= @diary.date.strftime("%B, %d, %Y") %></h1>
+<% else %>
+    <h1> Food Database </h1>
+<% end %>
+ 
+<%= form_for ([@diary, @food]) do |f| %>
+    <% if @food.errors.any? %>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @food.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<br>
+<%  if @diary %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>   
+    <br></br>
+    <%= f.label :calories %>
+    <%= f.number_field :calories, step: :any %>
+    <br></br>
+    <%= f.label :protein %>
+    <%= f.number_field :protein, step: :any %>
+    <br></br>
+    <%= f.label :carbohyrdates%>
+    <%= f.number_field :carbohydrates, step: :any %>
+    <br></br>
+    <%= f.label :fats%>
+    <%= f.number_field :fats, step: :any %>
+    <br></br>
+    <%= f.submit "Submit" %>
+<% end%>
+
+<% end %>

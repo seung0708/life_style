@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LifeStyle</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><%= link_to "Life Style", root_path %></a>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+    
+    <ul class="navbar-nav">
+      <% if logged_in? %>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= link_to "Home", current_user %><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Log Out", logout_path, method: "delete" %></a>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Sign Up", signup_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Log In", login_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><%= link_to "Google Login", '/auth/google_oauth2' %></a>
+      </li>
+      
+    </ul>
+    <% end %>
+  </div>
+  
+</nav>
+
+
+  <div class="container">
+    <body>
+      <%= yield %>
+    </body>
+  </div>
+</html>

@@ -1,0 +1,9 @@
+<% if logged_in? %>
+<h1>Welcome <%= current_user.username %></h1>
+<% end %>
+
+<br>
+
+<%= link_to "Food Database", foods_path %>
+
+<%= link_to "Food Diary", user_diaries_path(@user) %>

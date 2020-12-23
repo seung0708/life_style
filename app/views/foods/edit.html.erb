@@ -1,0 +1,20 @@
+<h3>Edit <%= @food.name %></h3>
+
+<%= form_for (@food) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>   
+    <br></br>
+    <%= f.label :calories %>
+    <%= f.number_field :calories %>
+    <br></br>
+    <%= f.label :protein %>
+    <%= f.number_field :protein %>
+    <br></br>
+    <%= f.label :carbohyrdates%>
+    <%= f.number_field :carbohydrates %>
+    <br></br>
+    <%= f.label :fats%>
+    <%= f.number_field :fats %>
+    <br></br>
+    <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,36 @@
+<h1> Saved Diary: <%= @diary.date.strftime("%B, %d, %Y") %> </h1>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>Serving Size</th>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbohydrates</th>
+            <th>Fats</th>
+        </tr>
+        <head>
+        <tbody>
+        <% @diary.diary_entries.each do |diary_entry| %>  
+        
+            <% @diary.foods.each do |food| %>
+        <tr>
+            <td><%= diary_entry.serving_size  %></td>
+            <td><%= food.name %></td>
+            <td><%= food.calories %></td>
+            <td><%= food.protein %></td>
+            <td><%= food.carbohydrates %></td>
+            <td><%= food.fats%></td>
+            <% end %> 
+        </tr>
+        <% end %>
+       </tbody>
+</table>
+
+
+<br></br>
+<%= link_to "Delete", diary_path(@diary), method: :delete %>
+<br></br>
+<%= link_to "Food Database", new_diary_food_path(@diary) %>
