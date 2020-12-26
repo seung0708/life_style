@@ -1,6 +1,8 @@
 <h1>Login</h1>
 
+
 <%= form_for :user do |f|  %>
+    <div class="form-group align-self-center">
     <%= f.label :username %><br>
     <%= f.text_field :username %><br>
 
@@ -8,7 +10,8 @@
     <%= f.password_field :password %><br>
 
     <%= f.submit "Login" %>
+    </div>
 <% end %>
-
+   
     <br>
     <%= flash[:message] if flash[:message] %>
