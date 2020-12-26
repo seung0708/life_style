@@ -33,9 +33,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_051932) do
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.float "calories"
-    t.float "protein"
-    t.float "carbohydrates"
-    t.float "fats"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

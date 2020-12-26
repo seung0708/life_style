@@ -8,5 +8,4 @@ class Food < ApplicationRecord
     validates :fats, presence: true
     scope :alpha, -> {order(:name)}
     #accepts_nested_attributes_for :diary_entries
-
 end

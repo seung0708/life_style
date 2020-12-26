@@ -7,13 +7,11 @@ class FoodsController < ApplicationController
     end 
 
     def new
-        if params[:diary_id] && @diary = Diary.find_by_id(params[:diary_id])
-            @food = @diary.foods.build
-        else
-            @error = "This diary doesn't exist" if params[:diary_id]
-            @food = Food.new
-        end 
-    end 
+        query = params[:query]
+        @food = Food.new
+        @results = @food.search_api_for(query)
+        render :new
+      end
 
     def create
         if params[:diary_id] && @diary = Diary.find_by_id(params[:diary_id])
