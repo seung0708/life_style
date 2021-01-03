@@ -27,6 +27,7 @@ gem 'httparty'
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
