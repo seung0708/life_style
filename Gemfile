@@ -20,8 +20,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'pg'
-gem 'bootstrap', '~> 4.1.3'
-
+gem "bootstrap", ">= 4.3.1"
+gem "nokogiri", ">= 1.11.0.rc4"
 
 gem 'httparty'
 gem 'omniauth'

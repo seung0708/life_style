@@ -15,13 +15,21 @@
   <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
-
+  <% if logged_in? %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to 'Home', user_path(@user), class: 'nav-link' %>
       </li>
+      <li class="nav-item active">
+      <%= link_to "Food Database", foods_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Food Diary", user_diaries_path(@user), class: 'nav-link' %>
+      </li>
+      <% else %>
       <li class="nav-item">
+  
       <%= link_to 'Login', login_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
@@ -29,9 +37,11 @@
       </li>
       <li class="nav-item">
       <%= link_to "Google Login", '/auth/google_oauth2', class: 'nav-link' %>
+      
       </li>
     </ul>
   </div>
+<% end %>
 </nav>
 
     

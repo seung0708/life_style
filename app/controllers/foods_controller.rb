@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
     before_action :find_food, only: [:show, :edit, :update]
 
     def index
-        @foods = Food.alpha
+        @foods = Food.all
     end 
 
     def new
