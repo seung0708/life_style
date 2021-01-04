@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_051932) do
 
   create_table "diaries", force: :cascade do |t|
     t.datetime "date"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_diaries_on_user_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_06_14_051932) do
 
   create_table "diary_entries", force: :cascade do |t|
     t.float "serving_size"
-    t.integer "food_id"
-    t.integer "diary_id"
+    t.bigint "food_id"
+    t.bigint "diary_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["diary_id"], name: "index_diary_entries_on_diary_id"

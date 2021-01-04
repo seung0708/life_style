@@ -19,26 +19,27 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to 'Home', user_path(@user), class: 'nav-link' %>
+        <%= link_to "Food Database", foods_path, class: 'nav-link' %>
       </li>
       <li class="nav-item active">
       <%= link_to "Food Database", foods_path, class: 'nav-link' %>
       </li>
       <li class="nav-item active">
-        <%= link_to "Food Diary", user_diaries_path(@user), class: 'nav-link' %>
+        <%= link_to "Food Diary", diaries_path(@user), class: 'nav-link' %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Logout", logout_path, method: "delete", class: 'nav-link' %>
       </li>
       <% else %>
-      <li class="nav-item">
-  
-      <%= link_to 'Login', login_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-      <%= link_to 'Sign Up', signup_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-      <%= link_to "Google Login", '/auth/google_oauth2', class: 'nav-link' %>
-      
-      </li>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', signup_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Google Login", '/auth/google_oauth2', class: 'nav-link' %>
+        </li>
     </ul>
   </div>
 <% end %>
